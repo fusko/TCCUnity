@@ -38,10 +38,24 @@ namespace AlgoritmoGenetico.Class
         [SerializeField]
         public bool isTrainner;
         public execType execMode;
+
+        bool running = false;
         private void Start()
         {
             bioDictionary = new Dictionary<Collider, Bio>();
             Bios = new List<Bio>();
+           
+          
+
+
+        }
+        [ContextMenu("start")]
+        public void Demo()
+        {
+            if (running)
+                return;
+
+            running = true;
             for (int i = 0; i < numOfStaticAgents; i++)
             {
 
@@ -53,7 +67,7 @@ namespace AlgoritmoGenetico.Class
 
                 bioDictionary.Add(bioCollider, bio);
 
-             
+
             }
             switch (execMode)
             {
@@ -73,16 +87,6 @@ namespace AlgoritmoGenetico.Class
                     DemoCarn();
                     break;
             }
-
-
-        }
-        private void Awake()
-        {
-            // Initialize variables
-
-
-
-            // Find all flowers that are children of this GameObject/Transform
 
         }
 

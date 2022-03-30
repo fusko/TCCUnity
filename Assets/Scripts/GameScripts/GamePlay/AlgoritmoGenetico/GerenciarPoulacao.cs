@@ -11,6 +11,9 @@ public class GerenciarPoulacao : MonoBehaviour
     [SerializeField]
     private Text labelPopulacao;
     private int geracao = 0;
+    [SerializeField] private GameObject contentGene;
+    [SerializeField] private GameObject contentView;
+    [SerializeField] private GameObject contentMenu;
     void Start()
     {
         ShowGeracao();
@@ -26,10 +29,15 @@ public class GerenciarPoulacao : MonoBehaviour
         populacao = new Populacao();
         for (int j = 0; j < Constants.sizePopulacao; j++)
         {
-            print(labelPopulacao.text + "\n" + (j.ToString() + "----" + Constants.leCromossomo(populacao.getPopulacao()[j].getCromossomo())));
-            labelPopulacao.text = labelPopulacao.text + "\n" + (j.ToString() + "----" + Constants.leCromossomo(populacao.getPopulacao()[j].getCromossomo()));
+          
+            GameObject gene = new GameObject("gene"+j);
+            gene.transform.SetParent(contentGene.transform);
+            gene.AddComponent<Text>().text =  (j.ToString() + "----" + Constants.leCromossomo(populacao.getPopulacao()[j].getCromossomo()));
+            gene.GetComponent<Text>().font = (Font)Resources.GetBuiltinResource(typeof(Font), "Arial.ttf");
+          
+          
         }
-    }
+        }
     /*    public void ExecutarAG()
         {
             labelPopulacao.text = "";
@@ -50,5 +58,10 @@ public class GerenciarPoulacao : MonoBehaviour
     public void ShowGeracao()
     {
         labeGeracao.text = geracao.ToString();
+    }
+
+    public void ShowOrCloseMenu(GameObject target)
+    {
+        target.SetActive(!target.activeSelf);
     }
 }
