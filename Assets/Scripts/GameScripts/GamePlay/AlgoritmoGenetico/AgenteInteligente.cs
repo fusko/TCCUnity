@@ -47,7 +47,7 @@ namespace AlgoritmoGenetico.Class
         private const float MaxPitchAngle = 80f;
 
 
-        [Tooltip("Speed to rotate around the up axis")]
+        [UnityEngine.Tooltip("Speed to rotate around the up axis")]
         public Bio bio;
         [Tooltip("Speed to rotate around the up axis")]
         public FoodType foodType;
@@ -70,6 +70,10 @@ namespace AlgoritmoGenetico.Class
         public float BioMassObtained { get; private set; }
         public Health health;
         public float payForMove = 0f;
+
+
+        public delegate void AgentDie(string agentName);
+        public static event AgentDie OnAgentDied;
         private void Awake()
         {
           
@@ -216,7 +220,11 @@ namespace AlgoritmoGenetico.Class
             // Don't take actions if frozen
             if (frozen) return;
 
-            if (EnergyAmount<=0) return;
+            if (EnergyAmount <= 0) {
+                FreezeAgent();
+                OnAgentDied(this.name);
+                return; 
+            }
             // Calculate movement vector
             Vector3 move = new Vector3(0, 0, 0);
             payForMove = 0;
@@ -301,7 +309,7 @@ namespace AlgoritmoGenetico.Class
 
         public void FreezeAgent()
         {
-            Debug.Assert(trainingMode == false, "Freeze/Unfreeze not supported in training");
+            Debug.Assert(trainingMode == true, "Freeze/Unfreeze not supported in training");
             frozen = true;
             rigidbody.Sleep();
         }
@@ -309,7 +317,7 @@ namespace AlgoritmoGenetico.Class
  
         public void UnfreezeAgent()
         {
-            Debug.Assert(trainingMode == false, "Freeze/Unfreeze not supported in training");
+            Debug.Assert(trainingMode == true, "Freeze/Unfreeze not supported in training");
             frozen = false;
             rigidbody.WakeUp();
         }

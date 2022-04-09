@@ -5,6 +5,7 @@ namespace AlgoritmoGenetico.Class
 {
     public class Environment : MonoBehaviour
     {
+        
 
         public Dictionary<Collider, Bio> bioDictionary;
         public const float AreaDiameter = 20f;
@@ -44,8 +45,8 @@ namespace AlgoritmoGenetico.Class
         {
             bioDictionary = new Dictionary<Collider, Bio>();
             Bios = new List<Bio>();
-           
-          
+            AgenteInteligente.OnAgentDied += CountAgentDie;
+            Demo();
 
 
         }
@@ -218,6 +219,9 @@ namespace AlgoritmoGenetico.Class
             }
 
         }
-
+        private void CountAgentDie(string agent)
+        {
+            print(agent);
+        }
     }
 }

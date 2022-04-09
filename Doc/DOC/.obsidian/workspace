@@ -1,0 +1,97 @@
+{
+  "main": {
+    "id": "fd0d604fbdaf78cc",
+    "type": "split",
+    "children": [
+      {
+        "id": "644eb9a093720a41",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "README.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "ab2d7a373d8647dd",
+    "type": "split",
+    "children": [
+      {
+        "id": "0fa4954f606d32f4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d5b465abf3c2f51c",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "930c9b3a1796b1a6",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#tecnologias-utilizadas",
+                "matchingCase": true,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "09b7589e8467036c",
+    "type": "split",
+    "children": [
+      {
+        "id": "06da5f21a1f6c155",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b2b28479026fe773",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "README.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "644eb9a093720a41",
+  "lastOpenFiles": [
+    "README.md",
+    "TODO.md",
+    "DONE.md",
+    "DOING.md"
+  ]
+}
