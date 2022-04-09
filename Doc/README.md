@@ -16,7 +16,7 @@
 
 # status-do-Projeto
 
-[[TODO]](./TODO)
+[[TODO]](./TODO.md)
 # tecnologias-utilizadas
 # pessoas-contribuidoras
 # pessoas-desenvolvedoras
