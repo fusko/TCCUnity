@@ -12,9 +12,11 @@
 * [Licença](#licença)
 * [Conclusão](#conclusão)
 
-#descrição-do-projeto
-#status-do-Projeto
+# descrição-do-projeto
+
+# status-do-Projeto
+
 [[TODO]]
-#tecnologias-utilizadas
-#pessoas-contribuidoras
-#pessoas-desenvolvedoras
+# tecnologias-utilizadas
+# pessoas-contribuidoras
+# pessoas-desenvolvedoras
