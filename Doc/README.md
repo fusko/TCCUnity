@@ -1,12 +1,14 @@
-# PROJETO SIMULAÇÃO DE AMBIENTE PREDATORIO UTILIZANDO ML-AGENTS
+# Projeto Algoritmos Genetico(A.Gs) e Redes Neurais em Unity com ML-Agents 
 
-## descrição-do-projeto
+## Descrição-do-projeto
 
-## status-do-Projeto
+## Status-do-Projeto
 
-[[TODO]](./TODO.md)
+[[TODO]] (./TODO.md)
 
 
-## tecnologias-utilizadas
+## Tecnologias-utilizadas
+Unity
+	ML-Agents
 ## Fontes
 
