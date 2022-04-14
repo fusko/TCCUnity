@@ -62,7 +62,7 @@ namespace AlgoritmoGenetico.Class
         [Tooltip("Speed to rotate around the up axis")]
         public float energyBase;
         /// <summary>
-        /// The amount of nectar the agent has obtained this episode
+        /// The amount of Bio the agent has obtained this episode
         /// </summary>
         /// 
         [Tooltip("Speed to rotate around the up axis")]
@@ -83,7 +83,7 @@ namespace AlgoritmoGenetico.Class
         {
             //print(EnergyAmount);
             //  print(BioMassObtained);
-            // Draw a line from the beak tip to the nearest flower
+            // Draw a line from the beak tip to the nearest Bio
             if (nearestBio != null)
                 Debug.DrawLine(transform.position, nearestBio.BioCenterPosition, Color.green);
 
@@ -151,19 +151,19 @@ namespace AlgoritmoGenetico.Class
 
                     float foodReceived = bio.Feed(.1f);
 
-                    // Keep track of nectar obtained
+                    // Keep track of Bio obtained
                     BioMassObtained += foodReceived;
                     CovertFoodtoEnergy(foodReceived);
                     if (trainingMode && EnergyAmount < energyBase)
                     {
-                        // Calculate reward for getting nectar
+                        // Calculate reward for getting Bio
                         float bonus = .02f * Mathf.Clamp01(dot);
 
                         AddReward(.01f + bonus);
 
                     }
 
-                    // If flower is empty, update the nearest flower
+                    // If Bio is empty, update the nearest Bio
                     if (!bio.HasBioMass)
                     {
                         UpdateNearestBio();
@@ -186,12 +186,12 @@ namespace AlgoritmoGenetico.Class
 
                     float foodReceived = bio.Feed(.1f);
 
-                    // Keep track of nectar obtained
+                    // Keep track of Bio obtained
                     BioMassObtained += foodReceived;
                     CovertFoodtoEnergy(foodReceived);
                     if (trainingMode && EnergyAmount < energyBase)
                     {
-                        // Calculate reward for getting nectar
+                        // Calculate reward for getting Bio
                         float bonus = .02f * Mathf.Clamp01(dot);
 
                         AddReward(.01f + bonus);
@@ -326,30 +326,30 @@ namespace AlgoritmoGenetico.Class
         {
             if (trainingMode)
             {
-                // Only reset flowers in training when there is one agent per area
+                // Only reset bios in training when there is one agent per area
                 environment.ResetBios();
             }
             
             bio.ResetBio();
-            // Reset nectar obtained
+            // Reset Bio obtained
             BioMassObtained = 0f;
             EnergyAmount = energyBase;
             // Zero out velocities so that movement stops before a new episode begins
             rigidbody.velocity = Vector3.zero;
             rigidbody.angularVelocity = Vector3.zero;
 
-            // Default to spawning in front of a flower
-            bool inFrontOfFlower = true;
+            // Default to spawning in front of a bio
+            bool inFrontOfBio = true;
             if (trainingMode)
             {
-                // Spawn in front of flower 50% of the time during training
-                inFrontOfFlower = UnityEngine.Random.value > .5f;
+                // Spawn in front of bio 50% of the time during training
+                inFrontOfBio = UnityEngine.Random.value > .5f;
             }
 
             // Move the agent to a new random position
-            MoveToSafeRandomPosition(inFrontOfFlower);
+            MoveToSafeRandomPosition(inFrontOfBio);
 
-            // Recalculate the nearest flower now that the agent has moved
+            // Recalculate the nearest Bio now that the agent has moved
             UpdateNearestBio();
             
         }
@@ -390,17 +390,17 @@ namespace AlgoritmoGenetico.Class
                 {
                     if (nearestBio == null && bio.HasBioMass)
                     {
-                        // No current nearest flower and this flower has nectar, so set to this flower
+                        // No current nearest Bio and this Bio has Bio, so set to this Bio
                         nearestBio = bio;
                     }
                     else if (bio.HasBioMass)
                     {
-                        // Calculate distance to this flower and distance to the current nearest flower
-                        float distanceToFlower = Vector3.Distance(bio.transform.position, transform.position);
-                        float distanceToCurrentNearestFlower = Vector3.Distance(nearestBio.transform.position, transform.position);
+                        // Calculate distance to this Bio and distance to the current nearest Bio
+                        float distanceToBio = Vector3.Distance(bio.transform.position, transform.position);
+                        float distanceToCurrentNearestBio = Vector3.Distance(nearestBio.transform.position, transform.position);
 
-                        // If current nearest flower is empty OR this flower is closer, update the nearest flower
-                        if (!nearestBio.HasBioMass || (distanceToFlower < distanceToCurrentNearestFlower))
+                        // If current nearest Bio is empty OR this Bio is closer, update the nearest Bio
+                        if (!nearestBio.HasBioMass || (distanceToBio < distanceToCurrentNearestBio))
                         {
                             nearestBio = bio;
                         }
@@ -419,16 +419,16 @@ namespace AlgoritmoGenetico.Class
 
         public void UseEnergy(float amount)
         {
-            // Track how much nectar was successfully taken (cannot take more than is available)
+            // Track how much Bio was successfully taken (cannot take more than is available)
             float energyUse = Mathf.Clamp(amount, 0f, EnergyAmount);
 
-            // Subtract the nectar
+            // Subtract the Bio
             EnergyAmount -= energyUse;
 
             //print(EnergyAmount);
             if (EnergyAmount <= 0)
             {
-                // No nectar remaining
+                // No Bio remaining
                 EnergyAmount = 0;
 
 

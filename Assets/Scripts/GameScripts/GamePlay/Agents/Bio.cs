@@ -92,15 +92,15 @@ namespace AlgoritmoGenetico.Class
         }
             public float Feed(float amount)
         {
-            // Track how much nectar was successfully taken (cannot take more than is available)
+            // Track how much Bio was successfully taken (cannot take more than is available)
             float BioMassTaken = Mathf.Clamp(amount, 0f, BioMassAmount);
 
-            // Subtract the nectar
+            // Subtract the Bio
             BioMassAmount -= amount;
 
             if (BioMassAmount <= 0)
             {
-                // No nectar remaining
+                // No Bio remaining
                 BioMassAmount = 0;
 
 
@@ -108,12 +108,12 @@ namespace AlgoritmoGenetico.Class
 
             }
            // BioMass = BioMassAmount;
-            // Return the amount of nectar that was taken
+            // Return the amount of Bio that was taken
             return BioMassTaken;
              }
             /*            public int Feed(float amount)
                     {
-                        // Track how much nectar was successfully taken (cannot take more than is available)
+                        // Track how much Bio was successfully taken (cannot take more than is available)
                         int BioMassTaken = int.Parse(Mathf.Clamp(amount, 0f, bioMass.Count).ToString());
 
                         string[] mass = new string[BioMassTaken];
@@ -126,7 +126,7 @@ namespace AlgoritmoGenetico.Class
 
                         if (BioMassAmount <= 0)
                         {
-                            // No nectar remaining
+                            // No Bio remaining
                             BioMassAmount = 0;
 
 
@@ -134,7 +134,7 @@ namespace AlgoritmoGenetico.Class
 
                         }
 
-                        // Return the amount of nectar that was taken
+                        // Return the amount of Bio that was taken
                         return BioMassTaken;
                     }*/
 
@@ -160,7 +160,7 @@ namespace AlgoritmoGenetico.Class
 
         public void ResetBio()
         {
-            // Refill the nectar
+            // Refill the Bio
             BioMassAmount = BioMass;
 
            

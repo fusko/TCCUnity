@@ -105,10 +105,11 @@ namespace AlgoritmoGenetico.Class
 
                     if (bio != null)
                     {
-                        // Found a flower, add it to the Flowers list
+                        // Found a
+                        // , add it to the Bios list
                         Bios.Add(bio);
 
-                        // Add the nectar collider to the lookup dictionary
+                        // Add the Bio collider to the lookup dictionary
 
                         bioDictionary.Add(bioCollider, bio);
 
@@ -122,7 +123,7 @@ namespace AlgoritmoGenetico.Class
         public void ResetBios()
         {
 
-            // Reset each flower
+            // Reset each Bio
             foreach (Bio bio in Bios)
             {
                 bio.ResetBio();
@@ -142,10 +143,10 @@ namespace AlgoritmoGenetico.Class
                 Collider bioCollider = herb.GetComponent<Collider>();
                 if (bio != null)
                 {
-                    // Found a flower, add it to the Flowers list
+                    // Found a Bio, add it to the Bios list
                     Bios.Add(bio);
 
-                    // Add the nectar collider to the lookup dictionary
+                    // Add the Bio collider to the lookup dictionary
 
                     bioDictionary.Add(bioCollider, bio);
 
@@ -163,10 +164,10 @@ namespace AlgoritmoGenetico.Class
                 Collider bioCollider = herb.GetComponent<Collider>();
                 if (bio != null)
                 {
-                    // Found a flower, add it to the Flowers list
+                    // Found a Bio, add it to the Bios list
                     Bios.Add(bio);
 
-                    // Add the nectar collider to the lookup dictionary
+                    // Add the Bio collider to the lookup dictionary
 
                     bioDictionary.Add(bioCollider, bio);
 
@@ -186,10 +187,10 @@ namespace AlgoritmoGenetico.Class
 
                 if (bio != null)
                 {
-                    // Found a flower, add it to the Flowers list
+                    // Found a Bio, add it to the Bios list
                     Bios.Add(bio);
 
-                    // Add the nectar collider to the lookup dictionary
+                    // Add the Bio collider to the lookup dictionary
 
                     bioDictionary.Add(bioCollider, bio);
 
@@ -207,10 +208,10 @@ namespace AlgoritmoGenetico.Class
                 Collider bioCollider = carn.GetComponent<Collider>();
                 if (bio != null)
                 {
-                    // Found a flower, add it to the Flowers list
+                    // Found a Bio, add it to the Bios list
                     Bios.Add(bio);
 
-                    // Add the nectar collider to the lookup dictionary
+                    // Add the Bio collider to the lookup dictionary
 
                     bioDictionary.Add(bioCollider, bio);
 
